@@ -25,6 +25,6 @@ public int getWeight(){
 
 //Method to retrieve the item's description
 public String examine(){
-	return description;
+	return "The " + name + " " + description + " It weighs " + weight + ".";
 }
 }

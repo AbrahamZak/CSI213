@@ -26,7 +26,12 @@ public class Food extends Item {
 	}
 	
 	//Method to set the food's quantity
-	public void setQuantity(int quantityChange){
-		quantity = quantityChange;
+	public void setQuantity(int newQuantity){
+		quantity = newQuantity;
+	}
+	
+	//Method to retrieve the food's weight with quantity calculations
+	public int getWeight(){
+		return weight*quantity;
 	}
 }
