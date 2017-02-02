@@ -1,4 +1,5 @@
 package rolePlayingGame;
+
 //We create our main class Item which includes the variables for the name of the item,
 //the weight of the item, and the description for when we want to 'examine' the item
 public class Item {
