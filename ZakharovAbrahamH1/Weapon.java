@@ -3,7 +3,7 @@ package rolePlayingGame;
 //This is one type of item called weapon, which has all qualities of item along with a damage integer
 public class Weapon extends Item {
 	
-public int damage;
+	private int damage;
 
 	//inherits variables from Item and adds damage
 	public Weapon(String nameOfItem, int weightOfItem, String descriptionOfItem, int damageOfWeapon) {

@@ -5,8 +5,8 @@ package rolePlayingGame;
 
 public class Food extends Item {
 
-	public int quantity;
-	public int nutrition;
+	private int quantity;
+	private int nutrition;
 	
 	//inherits variables from Item and adds quantity and nutrition
 	public Food(String nameOfItem, int weightOfItem, String descriptionOfItem, int nutritionOfFood, int quantityOfFood) {

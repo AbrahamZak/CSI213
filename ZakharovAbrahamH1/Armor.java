@@ -3,7 +3,7 @@ package rolePlayingGame;
 //This is one type of item called armor, which has all qualities of item along with a defense integer
 public class Armor extends Item {
 
-	public int defense;
+	private int defense;
 	
 	//inherits variables from Item and adds defense
 	public Armor(String nameOfItem, int weightOfItem, String descriptionOfItem, int defenseOfArmor) {
