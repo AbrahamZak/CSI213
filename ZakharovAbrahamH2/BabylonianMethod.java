@@ -2,26 +2,15 @@ package babylonianMethod;
 
 public class BabylonianMethod {
 
-//Variables for the number we are finding the square root of and the percent error
-private int squareRoot;
-private double percentError;
 
-/**
- * Constructor to initialize the number we are finding the square root of and the
- * given percent error
- * @param numberChoice
- * @param percentageError
- */
-public BabylonianMethod(int numberChoice, double percentageError){
-	squareRoot = numberChoice;
-	percentError = percentageError;
+public static double SquareRoot(double squareRoot, double errorAmount){
+	return BabylonianMath(squareRoot, squareRoot/2, errorAmount);
 }
 
-/**
- * Recursive method to determine the square root with the given percent error
- * @return squareRootResult
- */
-public double SquareRoot(){
-	return 0;
+public static double BabylonianMath (double squareRoot, double testNumber, double errorAmount){
+	if ((testNumber*testNumber)-errorAmount<squareRoot  && squareRoot<(testNumber*testNumber)+errorAmount){
+	return testNumber;
+	}
+	return BabylonianMath (squareRoot, ((testNumber+squareRoot)/testNumber)*0.5, errorAmount);
 }
 }
