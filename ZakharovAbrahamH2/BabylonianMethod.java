@@ -20,7 +20,7 @@ public static double SquareRoot(double squareRoot, double errorAmount){
  * @param squareRoot
  * @param testNumber
  * @param errorAmount
- * @return 
+ * @return testNumber
  */
 public static double BabylonianMath (double squareRoot, double testNumber, double errorAmount){
 	if ((testNumber*testNumber)-errorAmount<squareRoot  && squareRoot<(testNumber*testNumber)+errorAmount){
