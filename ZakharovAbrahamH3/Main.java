@@ -34,14 +34,14 @@ public class Main {
 		System.out.println();
 		
 		//Try to find a node that exists in the list and then try to find a node that doesn't
-		if (testList.findNode(testNodeThree)==true){
+		if (testList.findNode("Shalom")==true){
 			System.out.println("Node found.");
 		}
 		else{
 			System.out.println("Node not found.");
 		}
 		
-		if (testList.findNode(testNodeFour)==true){
+		if (testList.findNode("Adios")==true){
 			System.out.println("Node found.");
 		}
 		else{

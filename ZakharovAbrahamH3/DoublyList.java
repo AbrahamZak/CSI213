@@ -103,19 +103,19 @@ public class DoublyList {
      * @param - Node
      * @return boolean 
      */
-   public boolean findNode(Node node){
+   public boolean findNode(String search){
 	   //Make a temp node called checker (copy of our root)
 	   Node checker = root;
 	   
 	   //If the very first node is equal to the one we are searching for, return true
-	   if(checker == node) {
+	   if(checker.getName() == search) {
 		   return true;
 	   }
 	   //Otherwise search the entire list for a matching node
 	   else {
 	   while(checker.getNext() != null){
 		   checker = checker.getNext();
-		   if (checker == node) {
+		   if (checker.getName() == search) {
 			   return true;
 	   }
 	   }
