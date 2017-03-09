@@ -11,6 +11,7 @@ public class Main {
 		Node testNodeOne = new Node ("Hello");
 		Node testNodeTwo = new Node ("Goodbye");
 		Node testNodeThree = new Node ("Shalom");
+		Node testNodeFour = new Node ("Adios");
 		
 		//Add the test nodes to the list
 		testList.add(testNodeOne);
@@ -29,6 +30,23 @@ public class Main {
 		
 		//Iterate the list backwards
 		testList.iterateBackwards();
+		
+		System.out.println();
+		
+		//Try to find a node that exists in the list and then try to find a node that doesn't
+		if (testList.findNode(testNodeThree)==true){
+			System.out.println("Node found.");
+		}
+		else{
+			System.out.println("Node not found.");
+		}
+		
+		if (testList.findNode(testNodeFour)==true){
+			System.out.println("Node found.");
+		}
+		else{
+			System.out.println("Node not found.");
+		}
 		
 		System.out.println();
 	}

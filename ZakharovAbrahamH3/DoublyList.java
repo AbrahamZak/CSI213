@@ -99,5 +99,32 @@ public class DoublyList {
     public int getSize() {
         return size;
     }
+    
+    /**
+     * Method to take a Node and check if the node is in the list.
+     * If it finds the node, it returns true, otherwise it will return false
+     * @param - Node
+     * @return boolean 
+     */
+   public boolean findNode(Node node){
+	   //Make a temp node called checker (copy of our root)
+	   Node checker = root;
+	   
+	   //If the very first node is equal to the one we are searching for, return true
+	   if(checker == node) {
+		   return true;
+	   }
+	   //Otherwise search the entire list for a matching node
+	   else {
+	   while(checker.getNext() != null){
+		   checker = checker.getNext();
+		   if (checker == node) {
+			   return true;
+	   }
+	   }
+	   //If it is ultimately not found, return false
+	   return false;
+	   }   
+   }
 }
 
