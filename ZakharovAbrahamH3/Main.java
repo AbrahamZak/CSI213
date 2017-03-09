@@ -12,7 +12,12 @@ public class Main {
 		Node testNodeTwo = new Node ("Goodbye");
 		Node testNodeThree = new Node ("Shalom");
 		
+		testList.add(testNodeOne);
+		testList.add(testNodeTwo);
+		testList.add(testNodeThree);
+		
 		testList.iterateForwards();
+		testList.iterateBackwards();
 	}
 
 }

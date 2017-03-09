@@ -48,7 +48,7 @@ public class DoublyList {
           while(currentNode.getName()!= null)
           {
         	  //Print the current node
-        	  System.out.println(currentNode.toString());
+        	  System.out.println(currentNode.getName());
         	  
         	  //If the next node is empty we break the loop
         	  if (currentNode.getNext()==null){
@@ -70,12 +70,17 @@ public class DoublyList {
           while(currentNode.getName()!= null)
           {
         	  currentNode = currentNode.getNext();
+        	  
+        	  //If the next node is empty we break the loop
+        	  if (currentNode.getNext()==null){
+        		  break;
+        	  }
           }
           
           //While the previous node isn't empty we print and then move back one
           while (currentNode.getPrevious()!= null){
         	  //Print the current node
-        	  System.out.println(currentNode.toString());
+        	  System.out.println(currentNode.getName());
         	  
         	  //If the previous is empty, we break the loop
               if (currentNode.getPrevious()==null){
