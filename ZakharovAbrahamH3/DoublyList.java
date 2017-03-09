@@ -29,7 +29,7 @@ public class DoublyList {
                  size++;
                  current.setNext(toAdd);
                  Node setPrev = new Node(current.getName());
-                 current.getNext();
+                 current = current.getNext();
                  current.setPrevious(setPrev);   
     	 }
     		 
@@ -96,7 +96,7 @@ public class DoublyList {
      * Method to return the size of the list
      * @return size
      */
-    public int size() {
+    public int getSize() {
         return size;
     }
 }
