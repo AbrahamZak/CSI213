@@ -25,12 +25,9 @@ public class DoublyList {
     		 while(current.getNext() != null){
                  current = current.getNext();
                  }
-                 Node toAdd = node;
                  size++;
-                 current.setNext(toAdd);
-                 Node setPrev = new Node(current.getName());
-                 current = current.getNext();
-                 current.setPrevious(setPrev);   
+                 current.setNext(node);
+                 node.setPrevious(current); 
     	 }
     		 
     }
@@ -78,7 +75,7 @@ public class DoublyList {
           }
           
           //While the previous node isn't empty we print and then move back one
-          while (currentNode.getPrevious()!= null){
+          while (currentNode.getName()!= null){
         	  //Print the current node
         	  System.out.println(currentNode.getName());
         	  
@@ -125,6 +122,12 @@ public class DoublyList {
 	   //If it is ultimately not found, return false
 	   return false;
 	   }   
+   }
+   
+   //Method to delete/destroy the list
+   public void destroy(){
+	  root = null;
+	  size = 0;
    }
 }
 

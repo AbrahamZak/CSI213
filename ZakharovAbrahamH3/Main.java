@@ -49,6 +49,20 @@ public class Main {
 		}
 		
 		System.out.println();
+		
+		//Destroy the list
+		testList.destroy();
+		
+		//Iterate the list forwards after deletion
+	    testList.iterateForwards();
+		
+		//Add some new nodes to the list
+		testList.add(testNodeFour);
+		testList.add(testNodeTwo);
+		testList.add(testNodeThree);
+		
+		//Iterate the list forwards after adding new nodes
+		testList.iterateForwards();
 	}
 
 }
