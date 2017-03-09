@@ -47,7 +47,7 @@ public class Node {
 	 * Setter for the previous node
 	 * @param node
 	 */
-	public void setprevious(Node node) {
+	public void setPrevious(Node node) {
 		this.previous = node;
 	}
 	

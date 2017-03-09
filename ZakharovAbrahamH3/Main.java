@@ -11,7 +11,8 @@ public class Main {
 		Node testNodeOne = new Node ("Hello");
 		Node testNodeTwo = new Node ("Goodbye");
 		Node testNodeThree = new Node ("Shalom");
-
+		
+		testList.iterateForwards();
 	}
 
 }
