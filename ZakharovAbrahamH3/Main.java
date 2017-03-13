@@ -58,10 +58,22 @@ public class Main {
 		
 	    System.out.println();
 	    
+
+		//Return the size of the list after destroying it
+		System.out.println(testList.getSize());
+		
+		System.out.println();
+	    
 		//Add some new nodes to the list
 		testList.add(testNodeFour);
 		testList.add(testNodeTwo);
 		testList.add(testNodeThree);
+		
+
+		//Return the size of the list after adding new nodes
+		System.out.println(testList.getSize());
+		
+		System.out.println();
 		
 		//Iterate the list forwards after adding new nodes
 		testList.iterateForwards();

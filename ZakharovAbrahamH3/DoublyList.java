@@ -165,6 +165,7 @@ public class DoublyList {
     		   
     	   }
     	   root = null;
+    	   size = 0;
        }
        
    }
