@@ -56,6 +56,8 @@ public class Main {
 		//Iterate the list forwards after deletion
 	    testList.iterateForwards();
 		
+	    System.out.println();
+	    
 		//Add some new nodes to the list
 		testList.add(testNodeFour);
 		testList.add(testNodeTwo);

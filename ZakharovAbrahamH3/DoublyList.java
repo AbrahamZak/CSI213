@@ -39,6 +39,11 @@ public class DoublyList {
     	//set a temp node equal to our root
           Node currentNode = root;
 
+          //If the list is empty, let the user know you can't iterate it
+          if (currentNode==null){
+        	  System.out.println("The list is empty.");
+        	  return;
+          }
           
           //Continue looping through the list until we get to the end,
           //printing each node in the process
@@ -62,6 +67,12 @@ public class DoublyList {
     public void iterateBackwards(){
     	//set a temp node equal to our root
           Node currentNode = root;
+          
+        //If the list is empty, let the user know you can't iterate it
+          if (currentNode==null){
+        	  System.out.println("The list is empty.");
+        	  return;
+          }
           
           //Continue looping through the list until we get to the end
           while(currentNode.getName()!= null)
@@ -126,8 +137,39 @@ public class DoublyList {
    
    //Method to delete/destroy the list
    public void destroy(){
-	  root = null;
-	  size = 0;
+	   
+	//set a temp node equal to our root
+       Node destroy = root;
+       
+     //If the list is empty, let the user know you can't iterate it
+       if (destroy==null){
+     	  System.out.println("The list is empty.");
+     	  return;
+       }
+       
+       if (destroy.getNext()==null){
+    	   destroy = null;
+       }
+       
+       else{
+    	   while (destroy.getNext() != null){
+    		   Node temp = destroy.getNext();
+    		   if (destroy.getPrevious()!=null){
+    			   destroy.setPrevious(null);
+    		   }
+    		   if (destroy.getNext()!=null){
+    			   destroy.setNext(null);
+    		   }
+    		   destroy = null;
+    		   destroy = temp;
+    		   
+    	   }
+    	   root = null;
+       }
+       
    }
-}
+       
+       
+   }
+
 
