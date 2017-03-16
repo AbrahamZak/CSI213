@@ -189,39 +189,55 @@ public class DoublyList {
 		   current = null;
 		   temp.setPrevious(null);
 		   root = temp;
+		   System.out.println("Node: " + delete.getName() + " has been deleted.");
 		   size--;
 	   }
 	   
-	   
+	   //If the node we're trying to delete is not the root, we continue searching for it
 	   else {
+		   
+		   //A loop that will track down where on the list the node we are looking for is
 		   while(current.getNext() != null && current.getNext()!=delete){
 			   
+			   //If we haven't found it move on to the next node
 			   current = current.getNext();
 			   
+			   //If we reach the end of the list and the node isn't found, let the user know that the node
+			   //can't be deleted because it isn't in the list
 			   if (current.getNext()==null){
 				   System.out.println("Node not found for deletion.");
 				   return;
 			   }
 			   
 			   }
+		   
+		   //If we track the node, set a new node pointing to it called "removal"
 		   if (current.getNext()==delete){
 		   Node removal = current.getNext();
 		   
+		   //If the node we are trying to remove is the tail
 		   if (tail==removal){
+			   
+			   //Set the previous node to the tail, and empty out the data in the old tail
 			   Node tempPrev = removal.getPrevious();
 			   removal = null;
 			   tail = tempPrev;
 		   }
 		   
+		   //If it is not the tail
 		   if (tail!=removal){
+			   
+			   //We set pointers to the previous node and the next node
 			   Node tempPrev = removal.getPrevious();
 			   Node tempNext = removal.getNext();
 			   
+			   //Remove useless data from our node to delete, while connecting its previous and next nodes to each other
 			   tempPrev.setNext(tempNext);
 			   tempNext.setPrevious(tempPrev);
 			   removal = null;
 		   }
 		   
+		   //In any case we decrease size by 1 and let the user know which node we deleted
 		   size--;
 		   System.out.println("Node: " + delete.getName() + " has been deleted.");
 		   }
