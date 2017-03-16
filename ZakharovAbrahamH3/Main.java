@@ -77,6 +77,33 @@ public class Main {
 		
 		//Iterate the list forwards after adding new nodes
 		testList.iterateForwards();
+		
+		System.out.println();
+		
+		//Attempt to delete a node that is not on the list
+		testList.deleteNode(testNodeOne);
+		
+		System.out.println();
+		
+		//Delete a node on the list
+		testList.deleteNode(testNodeTwo);
+		
+		System.out.println();
+		
+		//Return the size of the list after deleting the node
+		System.out.println(testList.getSize());
+		
+		System.out.println();
+		
+		//Iterate the list forwards after deleting the node
+		testList.iterateForwards();
+		
+		System.out.println();
+		
+		//Iterate the list backwards after deleting the node
+		testList.iterateBackwards();
+		
+		System.out.println();
 	}
 
 }

@@ -13,15 +13,19 @@ public class DoublyList {
      * @param node
      */
     public void add(Node node) {
+    	//If the node is empty, don't add it to the list, let the user know
     	 if (node==null) {
     		 System.out.println("This node is empty");
     		 return;
     	 }
+    	 //If the list is empty, add this intial node as both the root and tail
     	 else if (root == null){
     		 size++;
     		 root = node;
     		 tail = node;
     	 }
+    	 //If there is already an existing element, find out where this new element belongs
+    	 //and insert it into the list (in alphabetical order)
     	 else{
     		 Node current = root;
     		 while(current.getNext() != null){
@@ -36,7 +40,7 @@ public class DoublyList {
     }
     
     /**
-     * Start with the head and traverse till you reach null. Print out the data in the nodes.
+     * Start with the root and traverse till you reach null. Print out the data in the nodes.
      */
     public void iterateForwards(){
     	//set a temp node equal to our root
@@ -144,10 +148,14 @@ public class DoublyList {
      	  return;
        }
        
+       //If the list only has 1 element, destroy that element
        if (destroy.getNext()==null){
     	   destroy = null;
        }
        
+       //If there are multiple elements on the list loop through the list until the end and delete each element
+       //setting it's previous and next to null, then the node itself, and then moving onto the next node
+       //In the end set the root to null and size to 0
        else{
     	   while (destroy.getNext() != null){
     		   Node temp = destroy.getNext();
@@ -166,8 +174,65 @@ public class DoublyList {
        }
        
    }
-       
-       
+   /**
+    * Method to delete a specific node from the list
+    * @param delete
+    */
+   public void deleteNode(Node delete){
+	   
+	   Node current = root;
+	   
+	 //If the very first node in our list is equal to the one we are trying to delete, delete that one while
+	 //setting the next one to the new root
+	   if(delete == current) {
+		   Node temp = current.getNext();
+		   current = null;
+		   temp.setPrevious(null);
+		   root = temp;
+		   size--;
+	   }
+	   
+	   
+	   else {
+		   while(current.getNext() != null && current.getNext()!=delete){
+			   
+			   current = current.getNext();
+			   
+			   if (current.getNext()==null){
+				   System.out.println("Node not found for deletion.");
+				   return;
+			   }
+			   
+			   }
+		   if (current.getNext()==delete){
+		   Node removal = current.getNext();
+		   
+		   if (tail==removal){
+			   Node tempPrev = removal.getPrevious();
+			   removal = null;
+			   tail = tempPrev;
+		   }
+		   
+		   if (tail!=removal){
+			   Node tempPrev = removal.getPrevious();
+			   Node tempNext = removal.getNext();
+			   
+			   tempPrev.setNext(tempNext);
+			   tempNext.setPrevious(tempPrev);
+			   removal = null;
+		   }
+		   
+		   size--;
+		   System.out.println("Node: " + delete.getName() + " has been deleted.");
+		   }
+			   
+			   
+		   }
+	   }
+	  
    }
+       
+       
+   
 
 
