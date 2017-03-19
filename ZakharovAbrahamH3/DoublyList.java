@@ -44,7 +44,7 @@ public class DoublyList {
     	 }
     	 
     	 //A special exception where we have to switch the second element 
-    	 //added with the first to place them alphabetically
+    	 //with the first to place them alphabetically
     	 if (foundPlace == false && current.getNext()==null){
     		 if (node.getName().compareTo(current.getName()) < 0){
     			 foundPlace = true;
