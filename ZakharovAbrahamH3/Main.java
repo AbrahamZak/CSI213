@@ -20,7 +20,6 @@ public class Main {
 		testList.add(testNodeTwo);
 		testList.add(testNodeThree);
 		
-		
 		//Return the size of the list
 		System.out.println(testList.getSize());
 		
