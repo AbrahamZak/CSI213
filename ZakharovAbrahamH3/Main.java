@@ -14,9 +14,12 @@ public class Main {
 		Node testNodeFour = new Node ("Adios");
 		
 		//Add the test nodes to the list
+		//They are added in the order of 'Hello', 'Goodbye', and 'Shalom'
+		//They will be sorted in alphabetical order as 'Goodbye', 'Hello', 'Shalom'
 		testList.add(testNodeOne);
 		testList.add(testNodeTwo);
 		testList.add(testNodeThree);
+		
 		
 		//Return the size of the list
 		System.out.println(testList.getSize());
@@ -65,9 +68,11 @@ public class Main {
 		System.out.println();
 	    
 		//Add some new nodes to the list
-		testList.add(testNodeFour);
+		//They are added in the order of 'Goodbye', 'Shalom', and 'Adios'
+		//They will be sorted in alphabetical order as 'Adios', 'Goodbye', 'Shalom'
 		testList.add(testNodeTwo);
 		testList.add(testNodeThree);
+		testList.add(testNodeFour);
 		
 
 		//Return the size of the list after adding new nodes

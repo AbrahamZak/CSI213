@@ -13,30 +13,71 @@ public class DoublyList {
      * @param node
      */
     public void add(Node node) {
+    	
     	//If the node is empty, don't add it to the list, let the user know
-    	 if (node==null) {
+    	 if (node.getName()==null) {
     		 System.out.println("This node is empty");
     		 return;
     	 }
-    	 //If the list is empty, add this intial node as both the root and tail
+    	 //If the list is empty, add this initial node as both the root and tail
     	 else if (root == null){
     		 size++;
     		 root = node;
     		 tail = node;
+    		 return;
     	 }
+    	
     	 //If there is already an existing element, find out where this new element belongs
-    	 //and insert it into the list (in alphabetical order)
-    	 else{
-    		 Node current = root;
-    		 while(current.getNext() != null){
-                 current = current.getNext();
-                 }
-                 size++;
-                 current.setNext(node);
-                 node.setPrevious(current);
-                 tail = node;
+    	 Node previous = null;
+    	 Node current = root;
+    	 Boolean foundPlace = false;
+    	 
+    	 while (current.getNext()!=null && foundPlace==false){
+    		 if (node.getName().compareTo(current.getName()) < 0){
+    			 foundPlace=true;
+    			 break;
+    		 }
+    		 else{
+    		 previous = current;
+    		 current = current.getNext();
+    		 }
     	 }
-    		 
+    	 
+    	 //A special exception where we have to switch the second element 
+    	 //added with the first to place them alphabetically
+    	 if (foundPlace == false && current.getNext()==null){
+    		 if (node.getName().compareTo(current.getName()) < 0){
+    			 foundPlace = true;
+    		 }
+    	 }
+    	 
+    	 //If the node we are adding is becoming our new root
+    	 if (foundPlace == true && previous == null){
+    		 root = node;
+    		 node.setNext(current);
+    		 current.setPrevious(node);
+    		 size++;
+    		 return;
+    	 }
+    	 
+    	 //If we are adding the node in between two other nodes
+    	 if (foundPlace==true){
+    		 previous.setNext(node);
+    		 node.setPrevious(previous);
+    		 node.setNext(current);
+    		 current.setPrevious(node);
+    		 size++;
+    		 return;
+    	 }
+    	 
+    	//If we didn't find a place to insert this node alphabetically, we place it at the end of our list
+    	 else{
+    		 current.setNext(node);
+    		 node.setPrevious(current);
+    		 tail = node;
+    		 size++;
+    	 }
+	 
     }
     
     /**
@@ -224,6 +265,7 @@ public class DoublyList {
 			   tail = tempPrev;
 		   }
 		   
+		
 		   //If it is not the tail
 		   if (tail!=removal){
 			   
