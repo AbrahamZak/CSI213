@@ -51,4 +51,36 @@ public class Stack {
     	String peek = root.getName();
     	return peek;
     }
+    
+    /**
+     * Method to iterate the stack and print its contents
+     */
+    public void print(){
+    	//set a temp node equal to our root
+        Node currentNode = root;
+
+        //If the stack is empty, let the user know you can't iterate it
+        if (currentNode==null){
+      	  System.out.println("The list is empty.");
+      	  return;
+        }
+        
+        //Continue looping through the stack until we get to the end,
+        //printing each node in the process
+        System.out.print("Stack: ");
+        while(currentNode.getName()!= null)
+        {
+      	  //Print the current node
+      	  System.out.print(currentNode.getName() + " ");
+      	  
+      	  //If the next node is empty we break the loop
+      	  if (currentNode.getNext()==null){
+      		  break;
+      	  }
+      	  
+      	  //Get the next node
+            currentNode = currentNode.getNext();
+        }
+        System.out.println();
+    }
 }

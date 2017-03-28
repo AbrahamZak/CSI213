@@ -97,4 +97,36 @@ public class Queue {
     		return currentNode.getName();
     	}
     }
+    
+    /**
+     * Method to iterate the queue and print its contents
+     */
+    public void print(){
+    	//set a temp node equal to our root
+        Node currentNode = root;
+
+        //If the queue is empty, let the user know you can't iterate it
+        if (currentNode==null){
+      	  System.out.println("The list is empty.");
+      	  return;
+        }
+        
+        //Continue looping through the queue until we get to the end,
+        //printing each node in the process
+        System.out.print("Queue: ");
+        while(currentNode.getName()!= null)
+        {
+      	  //Print the current node
+      	  System.out.print(currentNode.getName() + " ");
+      	  
+      	  //If the next node is empty we break the loop
+      	  if (currentNode.getNext()==null){
+      		  break;
+      	  }
+      	  
+      	  //Get the next node
+            currentNode = currentNode.getNext();
+        }
+        System.out.println();
+    }
 }
