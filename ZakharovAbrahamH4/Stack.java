@@ -3,7 +3,7 @@ package stacksAndQueuesADT;
 
 public class Stack {
 	//Our initial node (which starts empty)
-    private Node root = null;
+    private Node top = null;
     
     /**
      * Method to add a node to the beginning of our stack
@@ -14,16 +14,16 @@ public class Stack {
     	//Create the node we will be adding from the string given
     	 Node newNode = new Node (add);
     	 
-    	//If the stack is empty, add this initial node as the root
-   	     if (root == null){
-   		 root = newNode;
+    	//If the stack is empty, add this initial node as the top
+   	     if (top == null){
+   	    	top = newNode;
    		 System.out.println("push (" + add + ")");
    	     }
    	     
-   	     //If the stack is not empty, make the new node the root
+   	     //If the stack is not empty, make the new node the top
    		 else{
-   			 newNode.setNext(root);
-   			 root = newNode;
+   			 newNode.setNext(top);
+   			top = newNode;
    			System.out.println("push (" + add + ")");
    		 }	  
    	  }
@@ -33,14 +33,15 @@ public class Stack {
      */
     public void pop() {
     	//If there is only one item in our stack, remove that one item
-    	if (root.getNext()==null){
-    		System.out.println("pop -> " + root.getName());
-    		root = null;
+    	if (top.getNext()==null){
+    		System.out.println("pop -> " + top.getName());
+    		top = null;
     		return;
     	}
+    	//If there is more than one item set the top to next node
     	else{
-    	System.out.println("pop -> " + root.getName());
-    	root = root.getNext();
+    	System.out.println("pop -> " + top.getName());
+    	top = top.getNext();
     	}
     }
     
@@ -48,7 +49,7 @@ public class Stack {
      * Method to get the data from the top node of our stack
      */
     public String peek() {
-    	String peek = root.getName();
+    	String peek = top.getName();
     	return peek;
     }
     
@@ -56,8 +57,8 @@ public class Stack {
      * Method to iterate the stack and print its contents
      */
     public void print(){
-    	//set a temp node equal to our root
-        Node currentNode = root;
+    	//set a temp node equal to our top
+        Node currentNode = top;
 
         //If the stack is empty, let the user know you can't iterate it
         if (currentNode==null){

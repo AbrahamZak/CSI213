@@ -3,7 +3,7 @@ package stacksAndQueuesADT;
 public class Queue {
 
 	//Our initial node (which starts empty)
-    private Node root = null;
+    private Node top = null;
     
     /**
      * Method to add a node to the beginning of our queue
@@ -13,16 +13,16 @@ public class Queue {
     //Create the node we will be adding from the string given
    	 Node newNode = new Node (add);
    	 
-   	//If the queue is empty, add this initial node as the root
-  	     if (root == null){
-  		 root = newNode;
+   	//If the queue is empty, add this initial node as the top
+  	     if (top == null){
+  		 top = newNode;
   		 System.out.println("enqueue (" + add + ")");
   	     }
   	     
-  	     //If the queue is not empty, make the new node the root
+  	     //If the queue is not empty, make the new node the top
   		 else{
-  			 newNode.setNext(root);
-  			 root = newNode;
+  			 newNode.setNext(top);
+  			 top = newNode;
   			System.out.println("enqueue (" + add + ")");
   		 }	  
     	
@@ -33,21 +33,21 @@ public class Queue {
      */
     public void dequeue() {
     	//If there is only one item in our queue, remove that one item
-    	if (root.getNext()==null){
-    		System.out.println("dequeue (" + root.getName() + ")");
-    		root = null;
+    	if (top.getNext()==null){
+    		System.out.println("dequeue (" + top.getName() + ")");
+    		top = null;
     		return;
     	}
     	
     	//If there is more than one item, iterate our queue until we reach the end and
     	//remove that item from the queue
     	else{
-    		//set a temp node equal to our root
-    		Node currentNode = root;
+    		//set a temp node equal to our top
+    		Node currentNode = top;
     		//Continue looping through the queue until we get to the end	
     		while(currentNode.getName()!= null)
     		{
-
+    			
     		//If the next node is empty we break the loop
     		if (currentNode.getNext()==null){
     		break;
@@ -61,6 +61,7 @@ public class Queue {
     		//set that node equal to null
     		System.out.println("dequeue (" + currentNode.getName() + ")");
     		currentNode = null;
+    		
     
     	}
     }
@@ -70,15 +71,15 @@ public class Queue {
      */
     public String peek(){
     	//If there is only one item in our queue, return the data from it
-    	if (root.getNext()==null){
-    		return root.getName();
+    	if (top.getNext()==null){
+    		return top.getName();
     	}
     	
     	//Otherwise iterate the list until we reach the end and return the data
     	//from the last node in the list
     	else{
-    		//set a temp node equal to our root
-    		Node currentNode = root;
+    		//set a temp node equal to our top
+    		Node currentNode = top;
     		//Continue looping through the queue until we get to the end	
     		while(currentNode.getName()!= null)
     		{
@@ -102,9 +103,9 @@ public class Queue {
      * Method to iterate the queue and print its contents
      */
     public void print(){
-    	//set a temp node equal to our root
-        Node currentNode = root;
-
+    	//set a temp node equal to our top
+        Node currentNode = top;
+        
         //If the queue is empty, let the user know you can't iterate it
         if (currentNode==null){
       	  System.out.println("The list is empty.");
