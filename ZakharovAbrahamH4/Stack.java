@@ -22,7 +22,7 @@ public class Stack {
    	     
    	     //If the stack is not empty, make the new node the top
    		 else{
-   			 newNode.setNext(top);
+   			newNode.setNext(top);
    			top = newNode;
    			System.out.println("push (" + add + ")");
    		 }	  
