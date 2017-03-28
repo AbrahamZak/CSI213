@@ -65,5 +65,36 @@ public class Queue {
     	}
     }
     
-    
+    /**
+     * Method to get the data from the end of our queue
+     */
+    public String peek(){
+    	//If there is only one item in our queue, return the data from it
+    	if (root.getNext()==null){
+    		return root.getName();
+    	}
+    	
+    	//Otherwise iterate the list until we reach the end and return the data
+    	//from the last node in the list
+    	else{
+    		//set a temp node equal to our root
+    		Node currentNode = root;
+    		//Continue looping through the queue until we get to the end	
+    		while(currentNode.getName()!= null)
+    		{
+
+    		//If the next node is empty we break the loop
+    		if (currentNode.getNext()==null){
+    		break;
+    		}
+    		
+    		//Get the next node
+    		currentNode = currentNode.getNext();
+    		}
+    		
+    		//Once we are looking at the last node of the list,
+    		//return the data from that node
+    		return currentNode.getName();
+    	}
+    }
 }
