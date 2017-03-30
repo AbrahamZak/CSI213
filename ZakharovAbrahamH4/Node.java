@@ -5,7 +5,7 @@ public class Node {
 	//The data our node is holding will be a string
 	private String name;
 	
-	//Each node will reference the next node and the previous node
+	//Each node will reference the next node 
 	private Node next;
 	
 	/**
