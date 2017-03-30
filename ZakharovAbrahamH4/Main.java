@@ -39,41 +39,85 @@ public class Main {
 		
 		System.out.println();
 		
-		//Now we will test out methods to move a Stack to a Queue,
-		//a Queue to a stack, and a Stack to another Stack
-		//Create our test Stack and do some basic testing
+		//Now we will test out methods to move a Stack to a Queue
 		
 		//We will create a stack and add some data to it
-		Stack A = new Stack();
-		A.push("Have");
-		A.push("A");
-		A.push("Good");
-		A.push("Day");
+		Stack Stack = new Stack();
+		Stack.push("Have");
+		Stack.push("A");
+		Stack.push("Good");
+		Stack.push("Day");
 		
 		System.out.println();
 		
 		//Create the queue we will be transferring the stack to
-		Queue B = new Queue();
+		Queue Queue = new Queue();
 		
 		//do the transfer
-		stackToQueue(A, B);
+		//We keep in mind that the stack will pop in the order:
+		//Day Good A Have, so our final queue should dequeue in that same order
+		stackToQueue(Stack, Queue);
 		
 		System.out.println();
 		
 		//Print our stack and queue, the stack should be empty the queue should 
 		//contain the strings in the following order: Have A Good Day
-		A.print();
-		B.print();
+		Stack.print();
+		Queue.print();
 		
 		System.out.println();
 		
 		//Now we dequeue our queue to make sure that it dequeues in the same order
 		//in which our stack popped
 		//Should be order: Day->Good->A->Have
-		B.dequeue();
-		B.dequeue();
-		B.dequeue();
-		B.dequeue();
+		Queue.dequeue();
+		Queue.dequeue();
+		Queue.dequeue();
+		Queue.dequeue();
+
+		//TEST COMPLETE
+		System.out.println();
+		
+		//Now we will test out methods to move a Queue to a Stack
+		Queue.enqueue("Eight");
+		Queue.enqueue("Days");
+		Queue.enqueue("A");
+		Queue.enqueue("Week");
+		
+		System.out.println();
+		
+		//Print our stack and queue, the stack should be empty the queue should 
+		//contain the strings in the following order: Week A Days Eight
+		Stack.print();
+		Queue.print();
+				
+		System.out.println();
+		
+		//do the transfer
+		//We keep in mind that the queue will dequeue in the order:
+		//Eight Days A Week, so our final stack should pop in that same order
+		queueToStack(Queue, Stack);
+				
+		System.out.println();
+				
+		//Print our stack and queue, the queue should be empty the stack should 
+		//contain the strings in the following order: Eight Days A Week
+		Stack.print();
+		Queue.print();
+				
+		System.out.println();
+		
+		//Now we pop our stack to make sure that it pops in the same order
+		//in which our queue dequeued
+		//Should be order: Eight->Days->A->Week
+		Stack.pop();
+		Stack.pop();
+		Stack.pop();
+		Stack.pop();
+		
+		//TEST COMPLETE
+		System.out.println();
+		
 	}
 	/**
 	 * Method to move a stack to a queue
@@ -86,6 +130,7 @@ public class Main {
 			//Enqueue the top of the stack, then pop the stack
 			fromStack.enqueue(toQueue.peek());
 			toQueue.pop();
+			//If the Stack is empty, end the loop
 			if (toQueue.peek() == "Empty Stack"){
 				break;
 			}
@@ -97,12 +142,29 @@ public class Main {
 	 * @param toStack
 	 * @param fromQueue
 	 */
-	public static void QueuetoStack(Queue toStack, Stack fromQueue){
+	public static void queueToStack(Queue toStack, Stack fromQueue){
+		//Since queues are FIFO we need to first move our first stack to a temp stack
+		//Then move that temp stack into our stack
+		Stack temp = new Stack();
+		
 		//Loop through the queue until it is empty
 		while (toStack !=null){
 			//Push the end of the queue, then dequeue the queue
-			fromQueue.push(toStack.peek());
+			temp.push(toStack.peek());
 			toStack.dequeue();
+			//If the Queue is empty, end the loop
+			if (toStack.peek() == "Empty Queue"){
+				break;
+			}
+		}
+		
+		while (temp!=null){
+			//Push to the second stack then pop from the temp
+			fromQueue.push(temp.peek());
+			temp.pop();
+			if (temp.peek() == "Empty Stack"){
+				break;
+			}
 		}
 	}
 
