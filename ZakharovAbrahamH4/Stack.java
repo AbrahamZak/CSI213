@@ -49,8 +49,14 @@ public class Stack {
      * Method to get the data from the top node of our stack
      */
     public String peek() {
+    	//If the stack is empty return "Empty Stack"
+    	if (top == null){
+    		return ("Empty Stack");
+    	}
+    	else{
     	String peek = top.getName();
     	return peek;
+    	}
     }
     
     /**
@@ -62,7 +68,7 @@ public class Stack {
 
         //If the stack is empty, let the user know you can't iterate it
         if (currentNode==null){
-      	  System.out.println("The list is empty.");
+      	  System.out.println("The stack is empty.");
       	  return;
         }
         

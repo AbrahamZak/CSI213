@@ -37,20 +37,58 @@ public class Main {
 		//Print our Queue, should only contain string "Adios"
 		testQueue.print();
 		
+		System.out.println();
 		
+		//Now we will test out methods to move a Stack to a Queue,
+		//a Queue to a stack, and a Stack to another Stack
+		//Create our test Stack and do some basic testing
 		
+		//We will create a stack and add some data to it
+		Stack A = new Stack();
+		A.push("Have");
+		A.push("A");
+		A.push("Good");
+		A.push("Day");
+		
+		System.out.println();
+		
+		//Create the queue we will be transferring the stack to
+		Queue B = new Queue();
+		
+		//do the transfer
+		stackToQueue(A, B);
+		
+		System.out.println();
+		
+		//Print our stack and queue, the stack should be empty the queue should 
+		//contain the strings in the following order: Have A Good Day
+		A.print();
+		B.print();
+		
+		System.out.println();
+		
+		//Now we dequeue our queue to make sure that it dequeues in the same order
+		//in which our stack popped
+		//Should be order: Day->Good->A->Have
+		B.dequeue();
+		B.dequeue();
+		B.dequeue();
+		B.dequeue();
 	}
 	/**
 	 * Method to move a stack to a queue
 	 * @param toQueue
 	 * @param fromStack
 	 */
-	public void stackToQueue(Stack toQueue, Queue fromStack){
+	public static void stackToQueue(Stack toQueue, Queue fromStack){
 		//Loop through the stack until it is empty
-		while (toQueue !=null){
+		while (toQueue != null){
 			//Enqueue the top of the stack, then pop the stack
 			fromStack.enqueue(toQueue.peek());
 			toQueue.pop();
+			if (toQueue.peek() == "Empty Stack"){
+				break;
+			}
 		}
 	}
 	
@@ -59,7 +97,7 @@ public class Main {
 	 * @param toStack
 	 * @param fromQueue
 	 */
-	public void QueuetoStack(Queue toStack, Stack fromQueue){
+	public static void QueuetoStack(Queue toStack, Stack fromQueue){
 		//Loop through the queue until it is empty
 		while (toStack !=null){
 			//Push the end of the queue, then dequeue the queue
@@ -73,7 +111,7 @@ public class Main {
 	 * @param a
 	 * @param b
 	 */
-	public void stackToStack(Stack a, Stack b){
+	public static void stackToStack(Stack a, Stack b){
 		//Since stacks are LIFO we need to first move our first stack to a temp stack
 		//Then move that temp stack into our second stack
 		Stack temp = new Stack();

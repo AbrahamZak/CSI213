@@ -14,7 +14,7 @@ public class Queue {
     //Create the node we will be adding from the string given
    	 Node newNode = new Node (add);
    	 
-   	//If the queue is empty, add this initial node as the front
+   	 	//If the queue is empty, add this initial node as the front and back
   	     if (front == null){
   		 front = newNode;
   		 back = newNode;
@@ -68,6 +68,10 @@ public class Queue {
      * Method to get the data from the end of our queue
      */
     public String peek(){
+    	//If the queue is empty return "Empty Queue"
+    	if (front == null){
+    		return ("Empty Queue");
+    	}
     	//If there is only one item in our queue, return the data from it
     	if (front.getNext()==null){
     		return front.getName();
@@ -88,7 +92,7 @@ public class Queue {
         
         //If the queue is empty, let the user know you can't iterate it
         if (currentNode==null){
-      	  System.out.println("The list is empty.");
+      	  System.out.println("The queue is empty.");
       	  return;
         }
         
