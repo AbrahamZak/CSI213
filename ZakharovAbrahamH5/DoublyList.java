@@ -12,7 +12,9 @@ public class DoublyList {
      * Method to add a node to the doubly list
      * @param node
      */
-    public void add(Node node) {
+    public void add(int insert) { 
+    	//Create a node from our int
+    	Node node = new Node(insert);
     	
     	 //If the list is empty, add this initial node as both the root and tail
     	 if (root == null){
@@ -22,12 +24,13 @@ public class DoublyList {
     		 return;
     	 }
     	
+    	 //If not, add to the end of the list
     	 else{
     		//set a temp node equal to our root
              Node currentNode = root;
              
              //Continue looping through the list until we get to the end,
-             while(currentNode!= null)
+             while(currentNode.getValue()!=0)
              {
            	  
            	  //If the next node is empty we break the loop
@@ -40,7 +43,8 @@ public class DoublyList {
              }
              //Set the node we're adding to the end of the list
              currentNode.setNext(node);
-             root=node;
+             node.setPrevious(currentNode);
+             tail=node;
     	 }
     	
     }
@@ -53,14 +57,14 @@ public class DoublyList {
           Node currentNode = root;
 
           //If the list is empty, let the user know you can't iterate it
-          if (currentNode==null){
+          if (currentNode.getValue()==0){
         	  System.out.println("The list is empty.");
         	  return;
           }
           
           //Continue looping through the list until we get to the end,
           //printing each node in the process
-          while(currentNode!= null)
+          while(currentNode.getValue()!=0)
           {
         	  //Print the current node
         	  System.out.println(currentNode.getValue());
