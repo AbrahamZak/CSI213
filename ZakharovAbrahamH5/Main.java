@@ -23,7 +23,7 @@ public class Main {
 
 	/**
 	 * Method to fill the list with a specified amount of random integers
-	 * that can go upto 100
+	 * that can go up to 100
 	 * @param amount
 	 * @param list
 	 */

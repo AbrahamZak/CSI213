@@ -262,9 +262,6 @@ public class DoublyList {
     * Method to Bubble Sort the list
     */
    public void bubbleSort(){
-	   //Create a boolean that will turn true once our list is sorted
-	   boolean isSorted = false;
-	   
 	   //set a temp node equal to our root
        Node currentNode = root;
        
