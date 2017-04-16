@@ -45,6 +45,8 @@ public class DoublyList {
              currentNode.setNext(node);
              node.setPrevious(currentNode);
              tail=node;
+             //Increase size by 1
+             size++;
     	 }
     	
     }
@@ -256,8 +258,51 @@ public class DoublyList {
 			   
 		   }
 	   }
-	  
+   /**
+    * Method to Bubble Sort the list
+    */
+   public void bubbleSort(){
+	   //Create a boolean that will turn true once our list is sorted
+	   boolean isSorted = false;
+	   
+	   //set a temp node equal to our root
+       Node currentNode = root;
+       
+       //Create a counter for our loop, our loop only needs to execute as much as
+       //the size of the list
+       int counter = 0;
+       
+       //Continue looping until we've looped the amount of times as the size of the list
+       while (counter != size){
+    	   
+    	   //If we hit the tail, start from the beginning, add 1 to the counter
+    	   if (currentNode == tail){
+			   currentNode = root;
+			   counter++;
+		   }  
+    	   
+    	   //Check if the current node's value is greater than the next node
+    	   //If it is, swap them
+    	   if (currentNode.getValue()>currentNode.getNext().getValue()){
+    		   int tempValue = currentNode.getValue();
+    		   currentNode.setValue(currentNode.getNext().getValue());
+    		   currentNode.getNext().setValue(tempValue);
+    	   }
+    	   
+    	   //As long as we aren't at the tail, we keep going to the next node
+    		   if (currentNode != tail){
+    			   currentNode = currentNode.getNext();
+    		   }
+    		   
+    		   
+    		   
+    		  
+    	   }
+    	   
+       }
    }
+	  
+   
        
        
    

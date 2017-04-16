@@ -12,6 +12,13 @@ public class Main {
 		
 		//Iterate the list
 		testList.iterateForwards();
+		System.out.println();
+		
+		//Bubble sort the list
+		testList.bubbleSort();
+		
+		//Iterate the list again to show that it is now sorted
+		testList.iterateForwards();
 	}
 
 	/**
