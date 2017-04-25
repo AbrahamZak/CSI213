@@ -1,27 +1,51 @@
 package binarySearchTree;
 
 public class BinarySearchTree {
+//The root node of our binary search tree
 private Node root;
 
+//Set to root to null
 public BinarySearchTree(){
 	root = null;
 }
+
+/**
+ * Method to set the root to a certain word
+ * @param word
+ */
 public void setRoot(String word){
     root = new Node(word);
 }
 
+/**
+ * Getter for the root node
+ * @return
+ */
 public Node getRoot(){
     return root;
 }
 
+/**
+ * Recursive method to assist in moving through the tree when inserting the node
+ * @param word
+ */
 public void insert(String word)
 {
    insert(root, word);
 }
 
+/**
+ * Method to insert the node, it will place to the left or right depending on the characters in the word
+ * If a word already in the tree is inserted, the program will just add 1 to that node's counter
+ * @param node
+ * @param word
+ */
 private void insert(Node node, String word)
 {
-   if (word.compareTo(node.getWord())<1){
+ 	 if (word.compareTo(node.getWord())==1){
+  	   node.setCounter(node.getCounter()+1);
+     }
+ 	 else if (word.compareTo(node.getWord())<1){
    	if (node.left == null){
    	System.out.println("++Inserted " + word + " to the left of " + node.getWord());
    	 Node nodeLeft = new Node (word);
@@ -41,15 +65,21 @@ private void insert(Node node, String word)
    		insert (node.right, word);
    	}
    }
-   else if (word.compareTo(node.getWord())==1){
-	   node.setCounter(node.getCounter()+1);
-   }
+   
 }
 
+/**
+ * Method to recursively loop through the tree to print it
+ */
 public void inorder()
 {
     inorder(root);
 }
+
+/**
+ * Method to print the data in the tree inorder
+ * @param r
+ */
 private void inorder(Node r)
 {
     if (r!= null){
