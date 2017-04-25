@@ -3,8 +3,8 @@ package binarySearchTree;
 public class Node {
 
 	//Each node will reference the left node and the right node
-	private Node left;
-	private Node right;
+	 Node left;
+	 Node right;
 	
 	//The data our node is holding will be a string and a counter for how many times that string appears
 	String word;
