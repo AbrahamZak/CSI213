@@ -1,5 +1,9 @@
 package binarySearchTree;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class BinarySearchTree {
 //The root node of our binary search tree
 private Node root;
@@ -96,4 +100,54 @@ private void inorder(Node r)
    	 inorder(r.right);
     }
 }
+
+/**
+ * Method to import a text file into a binary search tree
+ * @param importTree
+ */
+public void importFile(String fileName){
+	File f = new File (fileName + ".txt");
+	try {
+		Scanner scan = new Scanner(f);
+		while (scan.hasNextLine()){
+			insert(scan.next());
+		}
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();
+	}
 }
+
+/**
+ * Method to search the tree beginning at the root
+ */
+public Node search (String word){
+	return search(word, root);
+}
+
+/**
+ * Method to search the tree recursively in order to find a node
+ * that matches a search term (string), returns the node
+ * @param word
+ * @param node
+ * @return node
+ */
+public Node search (String word, Node node){
+	if (node==null){
+		return null;
+	}
+	else if (word.equals(node.getWord())){
+  	   return node;
+     }
+	 if (word.compareTo(node.getWord())<0){
+		   		return search (word, node.left);
+		   	}
+	 else if (word.compareTo(node.getWord())>0){
+		   		 return search (word, node.right);
+		   	}
+	return node;
+	
+
+	}
+}
+
+
