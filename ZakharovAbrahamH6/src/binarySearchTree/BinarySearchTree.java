@@ -42,9 +42,15 @@ public void insert(String word)
  */
 private void insert(Node node, String word)
 {
+	if (this.root==null){
+		this.setRoot(word);
+	   	System.out.println("++Root: " + word);
+		return;
+	}
  	 if (word==node.getWord()){
  		System.out.println("++Counter " + word);
   	   node.setCounter(node.getCounter()+1);
+  	   return;
      }
  	 else if (word.compareTo(node.getWord())<1){
    	if (node.left == null){
@@ -85,7 +91,7 @@ private void inorder(Node r)
 {
     if (r!= null){
    	 inorder(r.left);
-   	 System.out.printf(" " + r.getWord() + ": " + r.getCounter());
+   	 System.out.println(r.getWord() + ": " + r.getCounter());
    	 inorder(r.right);
     }
 }
