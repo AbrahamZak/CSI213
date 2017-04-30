@@ -22,20 +22,15 @@ public class Main {
 	 * @param importTree
 	 */
 	public static void importFile(BinarySearchTree importTree){
-		 Scanner sc2 = null;
-		    try {
-		        sc2 = new Scanner(new File("words.txt"));
-		    } catch (FileNotFoundException e) {
-		        e.printStackTrace();  
-		    }
-		    while (sc2.hasNextLine()) {
-		            Scanner s2 = new Scanner(sc2.nextLine());
-		        while (s2.hasNext()) {
-		            String s = s2.next();
-		            importTree.insert(s);
-		        }
-		    }
-		    
+		File f = new File ("text.txt");
+		try {
+			Scanner scan = new Scanner(f);
+			while (scan.hasNextLine()){
+				importTree.insert(scan.next());
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -42,37 +42,38 @@ public void insert(String word)
  */
 private void insert(Node node, String word)
 {
-	if (this.root==null){
+	if (root==null){
 		this.setRoot(word);
 	   	System.out.println("++Root: " + word);
 		return;
 	}
- 	 if (word==node.getWord()){
+ 	 if (word.equals(node.getWord())){
  		System.out.println("++Counter " + word);
   	   node.setCounter(node.getCounter()+1);
   	   return;
      }
- 	 else if (word.compareTo(node.getWord())<1){
+ 	  if (word.compareTo(node.getWord())<0){
    	if (node.left == null){
    	System.out.println("++Inserted " + word + " to the left of " + node.getWord());
    	 Node nodeLeft = new Node (word);
    	 node.left = nodeLeft;
+   	 return;
    	}
    	else{
    		insert (node.left, word);
    	}
    }
-   else if (word.compareTo(node.getWord())>1){
+    if (word.compareTo(node.getWord())>0){
    	if (node.right == null){
    	System.out.println("++Inserted " + word + " to the right of " + node.getWord());
    	Node nodeRight = new Node (word);
       	 node.right = nodeRight;
+      	 return;
    	}
    	else{
    		insert (node.right, word);
    	}
    }
-   
 }
 
 /**
