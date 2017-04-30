@@ -19,6 +19,7 @@ public class Node {
 	        left = null;
 	        right = null;
 	        word = add;
+	        counter = 1;
 	    }
 	 
 	 /**

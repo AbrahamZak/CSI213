@@ -26,7 +26,7 @@ public Node getRoot(){
 }
 
 /**
- * Recursive method to assist in moving through the tree when inserting the node
+ * Method to insert a string node starting at the root
  * @param word
  */
 public void insert(String word)
@@ -42,7 +42,8 @@ public void insert(String word)
  */
 private void insert(Node node, String word)
 {
- 	 if (word.compareTo(node.getWord())==1){
+ 	 if (word==node.getWord()){
+ 		System.out.println("++Counter " + word);
   	   node.setCounter(node.getCounter()+1);
      }
  	 else if (word.compareTo(node.getWord())<1){
@@ -69,7 +70,7 @@ private void insert(Node node, String word)
 }
 
 /**
- * Method to recursively loop through the tree to print it
+ * Method to print the tree inorder beginning at the root
  */
 public void inorder()
 {

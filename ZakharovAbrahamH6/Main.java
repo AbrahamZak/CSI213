@@ -8,10 +8,13 @@ public class Main {
 		
 		//Add data to our tree
 		testTree.setRoot("hello");
-		testTree.insert("goodbye");
 		testTree.insert("hello");
 		testTree.insert("goodbye");
 		testTree.insert("goodbye");
+		testTree.insert("zebra");
+		testTree.insert("banana");
+		testTree.insert("octogon");
+		testTree.insert("hello");
 		
 		//Print the tree inorder
 		testTree.inorder();
