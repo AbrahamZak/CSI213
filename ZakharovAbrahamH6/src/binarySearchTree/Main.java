@@ -46,7 +46,7 @@ public class Main {
 		
 		System.out.println();
 		
-		//Print the tree inorder to show "Hello was removed"
+		//Print the tree inorder to show "hello" was removed
 		testTree.inorder();
 		
 		System.out.println();
