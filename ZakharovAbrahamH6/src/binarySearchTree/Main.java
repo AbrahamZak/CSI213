@@ -26,7 +26,7 @@ public class Main {
 		  
 		 //Search for a string not in our tree
 		 try{
-			 if ("hello".equals(testTree.search("nothing").getWord())){
+			 if ("nothing".equals(testTree.search("nothing").getWord())){
 		 }
 			 System.out.println("Found");
 		 }
