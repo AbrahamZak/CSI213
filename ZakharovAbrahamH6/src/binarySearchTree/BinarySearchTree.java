@@ -119,6 +119,9 @@ public void importFile(String fileName){
 		while (scan.hasNextLine()){
 			insert(scan.next());
 		}
+		    if(scan!=null){
+		        scan.close();
+		}
 		//This will catch the error if the file isn't found
 	} catch (FileNotFoundException e) {
 		e.printStackTrace();
