@@ -10,6 +10,8 @@ public class Main {
 		//Add data to our tree from text file
 		testTree.importFile("text");
 		
+		System.out.println();
+		
 		//Search for a specific string, the method returns the node of the search term
 		//We use try in order to catch a possible null pointer exception
 		//because the search returns a null node if the term isn't found
@@ -32,7 +34,29 @@ public class Main {
 			 System.out.println("Not found.");
 		 }
 		
-		//Print the tree inorder
+		 System.out.println();
+		 
+		//Print the tree inorder 
+		testTree.inorder();
+
+		 System.out.println();
+			 
+		//Remove "hello" from the tree
+		testTree.delete("hello");
+		
+		System.out.println();
+		
+		//Print the tree inorder to show "Hello was removed"
+		testTree.inorder();
+		
+		System.out.println();
+		
+		//Add some more data to our tree from text file
+		testTree.importFile("word");
+		
+		System.out.println();
+		
+		//Print the tree inorder to show that the text from our new file was added
 		testTree.inorder();
 	}
 	

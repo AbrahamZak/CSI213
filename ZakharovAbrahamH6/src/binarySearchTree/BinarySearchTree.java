@@ -46,16 +46,20 @@ public void insert(String word)
  */
 private void insert(Node node, String word)
 {
+	//If the root is null, set our word as the root
 	if (root==null){
 		this.setRoot(word);
 	   	System.out.println("++Root: " + word);
 		return;
 	}
+	//If the word is the same as the word already in the tree, increase the counter by 1
  	 if (word.equals(node.getWord())){
  		System.out.println("++Counter " + word);
   	   node.setCounter(node.getCounter()+1);
   	   return;
      }
+ 	 //If the word is less than the word in the tree either add that word to
+ 	 //the left or continue down the left if there is already something there
  	  if (word.compareTo(node.getWord())<0){
    	if (node.left == null){
    	System.out.println("++Inserted " + word + " to the left of " + node.getWord());
@@ -67,6 +71,8 @@ private void insert(Node node, String word)
    		insert (node.left, word);
    	}
    }
+ 	 //If the word is greater than the word in the tree either add that word to
+  	 //the right or continue down the right if there is already something there
     if (word.compareTo(node.getWord())>0){
    	if (node.right == null){
    	System.out.println("++Inserted " + word + " to the right of " + node.getWord());
@@ -107,11 +113,13 @@ private void inorder(Node r)
  */
 public void importFile(String fileName){
 	File f = new File (fileName + ".txt");
+	//Scan and add each word in the file to the tree
 	try {
 		Scanner scan = new Scanner(f);
 		while (scan.hasNextLine()){
 			insert(scan.next());
 		}
+		//This will catch the error if the file isn't found
 	} catch (FileNotFoundException e) {
 		e.printStackTrace();
 	}
@@ -132,12 +140,16 @@ public Node search (String word){
  * @return node
  */
 public Node search (String word, Node node){
+	//If we haven't found the search term, return null
 	if (node==null){
 		return null;
 	}
+	//If we found the search term, return the node with that search term
 	else if (word.equals(node.getWord())){
   	   return node;
      }
+	//Otherwise move to the left or right of the tree depending on the search
+	//term and current position
 	 if (word.compareTo(node.getWord())<0){
 		   		return search (word, node.left);
 		   	}
@@ -148,6 +160,72 @@ public Node search (String word, Node node){
 	
 
 	}
+/**
+ * Method to delete a node from the tree starting its search at the root
+ * It will set the root equal to a new tree that has the node removed
+ * @param word
+ */
+public void delete (String word){
+	root = delete(root, word);
+}
+
+/**
+ * Method that searches for a specific node and deletes it from the tree,
+ * it starts its search at the root
+ * @param word
+ * @param root
+ */
+public Node delete (Node root, String word){
+	//If the tree is empty, return root
+    if (root == null)  return root;
+    
+    //Otherwise, recursively move through the tree until we find a node
+    //that matches to the term
+    if (word.compareTo(root.getWord()) < 0)
+        root.left = delete(root.left, word);
+    else if (word.compareTo(root.getWord()) > 0)
+        root.right = delete(root.right, word);
+
+    //Once we find the node that matches the term we need to check how we are going
+    //to delete it
+    else
+    {
+        //If the node only has one child or none we can return its left or right
+    	//as the new root term (in that part of the tree)
+        if (root.left == null){
+        	System.out.println("Removed: " + word);
+        	 return root.right;
+        }  
+        else if (root.right == null){
+        	System.out.println("Removed: " + word);
+            return root.left;
+        }
+        //If the node has two children we get the smallest node in the right subtree
+        root.setWord(minWord(root.right));
+
+        // Delete it
+        root.right = delete(root.right, root.word);
+    }
+    //Return our root after all modifications, it becomes our new root
+    return root;
+	}
+
+/**
+ * Method to find the smallest node in the right subtree, only used when we have two
+ * children in a node we want to delete
+ * @param root
+ * @return
+ */
+String minWord(Node root)
+{
+    String minw = root.getWord();
+    while (root.left != null)
+    {
+        minw = root.left.getWord();
+        root = root.left;
+    }
+    return minw;
+}
 }
 
 
